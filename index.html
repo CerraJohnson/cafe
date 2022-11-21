@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tuxedo Cat Coffee</title>
+    <link type="text/css" rel="stylesheet" href="cafe.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Tuxedo Cat Coffee"/>
+    </header>
+    <main>
+        <form id="order_form" name="order_form" action="checkout.html" method="get">
+            <section id="menu">
+            	<h2>Menu</h2>
+            	<p>Click an item to add it to your order.</p>
+            	<ul>
+            		<li><a href="#"><img id="images/espresso_info.jpg" src="images/espresso.jpg" alt="espresso"/></a></li>
+            		<li><a href="#"><img id="images/latte_info.jpg" src="images/latte.jpg" alt="latte"/></a></li>
+            		<li><a href="#"><img id="images/cappuccino_info.jpg" src="images/cappuccino.jpg" alt="cappuccino"/></a></li>
+            		<li><a href="#"><img id="images/coffee_info.jpg" src="images/coffee.jpg" alt="coffee"/></a></li>
+            		<li><a href="#"><img id="images/biscotti_info.jpg" src="images/biscotti.jpg" alt="biscotti"/></a></li>
+            		<li><a href="#"><img id="images/scone_info.jpg" src="images/scone.jpg" alt="scone"/></a></li>
+            	</ul>
+            </section>
+
+            <section>
+            	<h2>Your Order</h2>
+            	<section>
+            		<select id="order" name="order" size="6">
+						<option> </option>
+					
+            		</select>
+            		<p id="total">Total</p>  
+
+           		</section>
+            	<section id="buttons">
+           			<input type="button" name="place_order" id="place_order" value="Place Order" onclick="window.location.href='checkout.html';" >
+           			<input type="button" name="clear_order" id="clear_order" value="Clear Order" onclick="document.getElementById('order').innerText = ' '; document.getElementById('total').innerText = 'Total '; total_bill = 0;">				            		
+            	</section>
+            </section>   
+
+
+
+        </form>
+    </main> 
+
+	<script>
+		//change image source onmouseover
+		var total_bill = 0;
+		var espresso_price = 1.95;
+		var latte_price = 2.95;
+		var cappuccino_price = 3.45;
+		var drip_coffee_price = 1.75;
+		var biscotti_price = 1.95;
+		var scone_price = 2.95;
+		
+
+
+		
+
+
+
+		$(document).ready(function(){
+  		$('img[alt~="espresso"]').mouseover(function(){
+    		$('img[alt~="espresso"]').attr("src", "images/espresso_info.jpg");
+  				});
+	    $('img[alt~="espresso"]').mouseleave(function(){
+    		$('img[alt~="espresso"]').attr("src", "images/espresso.jpg");
+  				});	
+		$('img[alt~="espresso"]').click(function(){
+			total_bill += espresso_price;
+			document.getElementById("total").innerHTML = "Total: " + total_bill.toFixed(2);
+			var x = document.getElementById("order");
+  			var option = document.createElement("option");
+  			option.text = "$1.95 - Espresso";
+  			x.add(option);
+
+		});		
+
+		});
+
+
+		$(document).ready(function(){
+  		$('img[alt~="latte"]').mouseover(function(){
+    		$('img[alt~="latte"]').attr("src", "images/latte_info.jpg");
+  				});
+	    $('img[alt~="latte"]').mouseleave(function(){
+    		$('img[alt~="latte"]').attr("src", "images/latte.jpg");
+  				});
+		$('img[alt~="latte"]').click(function(){
+			total_bill += latte_price;
+			document.getElementById("total").innerHTML = "Total: " + total_bill.toFixed(2);
+			var x = document.getElementById("order");
+  			var option = document.createElement("option");
+  			option.text = "$2.95 - Latte";
+  			x.add(option);
+
+
+
+		});
+			
+		});
+
+		$(document).ready(function(){
+  		$('img[alt~="cappuccino"]').mouseover(function(){
+    		$('img[alt~="cappuccino"]').attr("src", "images/cappuccino_info.jpg");
+  				});
+	    $('img[alt~="cappuccino"]').mouseleave(function(){
+    		$('img[alt~="cappuccino"]').attr("src", "images/cappuccino.jpg");
+  				});
+
+		$('img[alt~="cappuccino"]').click(function(){
+			total_bill += cappuccino_price;
+			document.getElementById("total").innerHTML = "Total: " + total_bill.toFixed(2);
+			var x = document.getElementById("order");
+  			var option = document.createElement("option");
+  			option.text = "$3.45 - Cappuccino";
+  			x.add(option);
+
+
+
+		});
+
+			
+		});
+
+		$(document).ready(function(){
+  		$('img[alt~="coffee"]').mouseover(function(){
+    		$('img[alt~="coffee"]').attr("src", "images/coffee_info.jpg");
+  				});
+	    $('img[alt~="coffee"]').mouseleave(function(){
+    		$('img[alt~="coffee"]').attr("src", "images/coffee.jpg");
+  				});
+
+		$('img[alt~="coffee"]').click(function(){
+			total_bill += drip_coffee_price;
+			document.getElementById("total").innerHTML = "Total: " + total_bill.toFixed(2);
+			var x = document.getElementById("order");
+  			var option = document.createElement("option");
+  			option.text = "$1.75 - Drip Coffee";
+  			x.add(option);
+
+
+
+		});
+			
+		});
+
+		$(document).ready(function(){
+  		$('img[alt~="biscotti"]').mouseover(function(){
+    		$('img[alt~="biscotti"]').attr("src", "images/biscotti_info.jpg");
+  				});
+	    $('img[alt~="biscotti"]').mouseleave(function(){
+    		$('img[alt~="biscotti"]').attr("src", "images/biscotti.jpg");
+  				});
+
+		$('img[alt~="biscotti"]').click(function(){
+			total_bill += biscotti_price;
+			document.getElementById("total").innerHTML = "Total: " + total_bill.toFixed(2);
+			var x = document.getElementById("order");
+  			var option = document.createElement("option");
+  			option.text = "$1.95 - Biscotti";
+  			x.add(option);
+
+
+
+		});
+			
+		});
+
+		$(document).ready(function(){
+  		$('img[alt~="scone"]').mouseover(function(){
+    		$('img[alt~="scone"]').attr("src", "images/scone_info.jpg");
+  				});
+	    $('img[alt~="scone"]').mouseleave(function(){
+    		$('img[alt~="scone"]').attr("src", "images/scone.jpg");
+  				});
+
+		$('img[alt~="scone"]').click(function(){
+			total_bill += scone_price;
+			document.getElementById("total").innerHTML = "Total: " + total_bill.toFixed(2);
+			var x = document.getElementById("order");
+  			var option = document.createElement("option");
+  			option.text = "$2.95 - Scone";
+  			x.add(option);
+
+
+
+		});
+			
+		});
+
+		
+
+    
+		
+			
+		
+	</script>
+
+	
+
+</body>
+</html>
